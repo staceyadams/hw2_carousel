@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="MNZ-D6-iqb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="WAR-sB-MVV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -87,14 +87,6 @@
                                 <rect key="frame" x="0.0" y="74" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_in_buttons" id="uhp-OF-iFj">
-                                <rect key="frame" x="0.0" y="455" width="320" height="104"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="tRI-ri-osM">
-                                <rect key="frame" x="151" y="253" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" id="UJ4-sN-jna">
                                 <rect key="frame" x="-4" y="148" width="328" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,27 +111,38 @@
                                     </textField>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qyU-ip-aOF">
-                                <rect key="frame" x="22" y="471" width="276" height="48"/>
+                            <view contentMode="scaleToFill" id="cWg-VS-q4U">
+                                <rect key="frame" x="-20" y="435" width="360" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="SignInDidPress:" destination="WAR-sB-MVV" eventType="touchUpInside" id="0rb-Kt-f7W"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_in_buttons" id="uhp-OF-iFj">
+                                        <rect key="frame" x="20" y="20" width="320" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qyU-ip-aOF">
+                                        <rect key="frame" x="42" y="31" width="276" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SignInDidPress:" destination="WAR-sB-MVV" eventType="touchUpInside" id="m31-e4-dv5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ln1-bf-Mbu"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="tRI-ri-osM" id="y5g-FK-KWE"/>
                         <outlet property="emailTextField" destination="46X-jC-o1T" id="AV6-xN-Em8"/>
                         <outlet property="loginButton" destination="qyU-ip-aOF" id="6i7-DY-43T"/>
                         <outlet property="loginContainer" destination="UJ4-sN-jna" id="rTy-un-bBC"/>
                         <outlet property="passwordTextField" destination="gJy-a4-dVU" id="uWk-jV-wJJ"/>
-                        <outlet property="signInButtons" destination="uhp-OF-iFj" id="6hI-s6-fjf"/>
+                        <outlet property="signInButtons" destination="qyU-ip-aOF" id="GK4-RX-wYx"/>
+                        <outlet property="signInContainer" destination="cWg-VS-q4U" id="Ze9-fe-26K"/>
                         <segue destination="lNp-WA-e1o" kind="modal" identifier="loginSegue" id="VHz-Qf-AUn"/>
                     </connections>
                 </viewController>

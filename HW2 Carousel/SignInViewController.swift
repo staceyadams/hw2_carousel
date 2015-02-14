@@ -11,25 +11,17 @@ import UIKit
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var loginContainer: UIView!
-    @IBOutlet weak var signInButtons: UIImageView!
+    @IBOutlet weak var signInContainer: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
-    var originalLoginFieldsYCenter: CGFloat!
-    var originalLoginButtonsYCenter: CGFloat!
-    
+    @IBOutlet weak var signInButtons: UIButton!
 
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
+    var originalLoginYCenter: CGFloat!
+    var originalButtonsYCenter: CGFloat!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +31,9 @@ class SignInViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-       originalLoginFieldsYCenter = loginContainer.center.y
-       originalLoginButtonsYCenter = signInButtons.center.y
+        originalLoginYCenter = loginContainer.center.y
+        originalButtonsYCenter = signInContainer.center.y
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +41,58 @@ class SignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
  
+    
+    // Shift up elements so they are still visible when the keyboard comes up
+    
+
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            
+            self.loginContainer.center.y = 83
+            self.signInContainer.center.y = 250
+            
+            }, completion: nil)
+    }
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        // Get the keyboard height and width from the notification
+        // Size varies depending on OS, language, orientation
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
+        var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+            // Set view properties in here that you want to match with the animation of the keyboard
+            // If you need it, you can use the kbSize property above to get the keyboard width and height.
+            
+            self.loginContainer.center.y = self.originalLoginYCenter
+            self.signInContainer.center.y = self.originalButtonsYCenter
+            
+            }, completion: nil)
+    }
+    
+    
+ 
+    // Do stuff when password fields are entered and Sign In button is pressed
     
     func checkPassword() {
         //show alert for "signing in...", then dismiss after a wait
@@ -85,44 +130,6 @@ class SignInViewController: UIViewController {
     
     }
     
-    
-    func keyboardWillShow(notification: NSNotification!) {
-        var userInfo = notification.userInfo!
-        
-        // Get the keyboard height and width from the notification
-        // Size varies depending on OS, language, orientation
-        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
-        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-        var animationDuration = durationValue.doubleValue
-        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
-        var animationCurve = curveValue.integerValue
-        // make the anim smooth
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
-            
-        // Shift login fields and sign in buttons up
-        self.signInButtons.center.y = self.signInButtons.center.y - kbSize.height
-        self.loginContainer.center.y = self.loginContainer.center.y - 50
-            
-        }, completion: nil)
-    }
-    
-    func keyboardWillHide(notification: NSNotification!) {
-        var userInfo = notification.userInfo!
-        
-        // Get the keyboard height and width from the notification
-        // Size varies depending on OS, language, orientation
-        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
-        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-        var animationDuration = durationValue.doubleValue
-        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
-        var animationCurve = curveValue.integerValue
-        
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
-            
-            // Brings the login back to where it was when we started
-            self.loginContainer.center.y = self.originalLoginFieldsYCenter
-            }, completion: nil)
-    }
     
 
 

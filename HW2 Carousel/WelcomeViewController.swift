@@ -19,8 +19,6 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var welcome4: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var backupButtonContainer: UIView!
-    @IBOutlet weak var backupButton: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
