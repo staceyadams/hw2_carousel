@@ -20,6 +20,7 @@
 		B5D475261A8BCA9300C25F60 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D475251A8BCA9300C25F60 /* IntroViewController.swift */; };
 		B5D475281A8BCE0F00C25F60 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D475271A8BCE0F00C25F60 /* SignInViewController.swift */; };
 		B5DE02B71A8DAC8C00054BFA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DE02B61A8DAC8C00054BFA /* WelcomeViewController.swift */; };
+		B5ECEE8A1A901ECA00039FC2 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ECEE891A901ECA00039FC2 /* GetStartedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		B5D475251A8BCA9300C25F60 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B5D475271A8BCE0F00C25F60 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B5DE02B61A8DAC8C00054BFA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B5ECEE891A901ECA00039FC2 /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				B594C2091A8FD3260078EDFD /* FeedViewController.swift */,
 				B594C20B1A8FD6730078EDFD /* ConversationsViewController.swift */,
 				B594C20D1A8FD77F0078EDFD /* SettingsViewController.swift */,
+				B5ECEE891A901ECA00039FC2 /* GetStartedViewController.swift */,
 			);
 			path = "HW2 Carousel";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				B5D475261A8BCA9300C25F60 /* IntroViewController.swift in Sources */,
 				B594C20A1A8FD3260078EDFD /* FeedViewController.swift in Sources */,
 				B594C20E1A8FD77F0078EDFD /* SettingsViewController.swift in Sources */,
+				B5ECEE8A1A901ECA00039FC2 /* GetStartedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
